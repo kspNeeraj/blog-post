@@ -28,6 +28,18 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.get("/",(req,res)=>{
     res.render("home")
+});
+
+app.get("/about",(req,res)=>{
+    res.render("about")
+})
+
+app.get("/login",(req,res)=>{
+    res.render("login")
+})
+
+app.get("/createPost",(req,res)=>{
+    res.render("compose")
 })
 
 

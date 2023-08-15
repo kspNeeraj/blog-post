@@ -1,0 +1,14 @@
+body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+nav{
+    padding: 20px;
+    text-align: center;
+}
+
+nav>a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-left: 20px;   
+}
