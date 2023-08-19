@@ -97,9 +97,19 @@ const BlogPost=new mongoose.model('post',postSchema);
 the root URL, the handler function is executed. */
 app.get("/",async (req,res)=>{
     const allPosts=await BlogPost.find();
-    res.render("home",{
-        Posts:allPosts
-    })
+    if(req.user){
+ //       console.log(req.user)
+        res.render("home",{
+            Posts:allPosts, 
+            username:req.user.username
+        })
+    }
+    else{
+        res.render("home",{
+            Posts:allPosts, 
+        })
+    }
+    
 });
 
 app.get("/about",(req,res)=>{
@@ -159,14 +169,21 @@ app.get("/createPost",(req,res)=>{
 
 
 app.post("/compose",(req,res)=>{
-    console.log(req.body);
-    const newPost=new BlogPost({
-        Title:req.body.posttitle,
-        Data:req.body.postData
-    })
-    console.log(newPost);
-    newPost.save();
-    res.redirect("/")
+ //   console.log(req.body);
+    
+    if (req.user) {
+        const newPost=new BlogPost({
+            Title:req.body.posttitle,
+            Data:req.body.postData
+        });
+        console.log(newPost);
+        newPost.save();
+        res.redirect("/")
+    }
+    else{
+        res.redirect("/login")
+    }
+    
 });
 
 

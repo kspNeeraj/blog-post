@@ -2,11 +2,19 @@
 
 <div class="blog-container">
     <div class="blogs">
+        <% if(locals.username){ %>
+            <h3> <%= username  %></h3>
+        <% } %>
         <h1>blogs</h1>
-        <ul>
-            <li>
+        <ul class="postList">
+            <% Posts.forEach(post => { %>
+                <li>
+                    <h4><%= post.Title %></h4>
+                    <p><%= post.Data %></p>
+                </li>
                 
-            </li>
+           <% }); %>
+            
         </ul>
     </div>
 
