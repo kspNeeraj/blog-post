@@ -1,0 +1,15 @@
+.postList{
+    list-style: none;
+}
+li{
+    border: 1px solid black;
+    margin-bottom: 10px;
+    width: 80%;
+    padding: 10px;
+}
+li >h4{
+    margin: 0;
+}
+li >p{
+    margin: 0;
+}
